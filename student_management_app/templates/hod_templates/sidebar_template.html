@@ -97,7 +97,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    {% url 'manageSubject' as manageSubject %}
+                    {% url 'manageSubject' as manageSubject tite %}
                     {% url 'editSubject' id as editSubject %}
                     <a href=" {{manageSubject}} "
                         class="nav-link {% if request.path == manageSubject %} active {% endif %} {% if request.path == editSubject %} active {% endif %}">
