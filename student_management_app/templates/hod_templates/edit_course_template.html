@@ -1,0 +1,57 @@
+{% extends 'hod_templates/base_template.html' %}
+{% load static %}
+<!-- Main content -->
+{% block page_title %}
+Edit Course | Course Name: {{course.course_name}} | ID: {{course.id}}
+{% endblock page_title %}
+{% block main_content %}
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- general form elements -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Edit Course</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form role="form" action=" {% url 'editCourseSave' course.id %} " method="POST">
+                        {% csrf_token %}
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label>Course Name </label>
+                                <input type="text" class="form-control" name="course_name" placeholder="Enter Course"
+                                    required value="{{course.course_name}}">
+                            </div>
+                            {% if messages %}
+                            <div class="form-group">
+                                {% for message in messages %}
+                                {% if message.tags == 'error' %}
+                                <div style="margin-top: 10px;" class="alert alert-danger">
+                                    {{message}}
+                                </div>
+                                {% else %}
+                                <div style="margin-top: 10px;" class="alert alert-success">
+                                    {{message}}
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                        <!-- /.card-body -->
+
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary btn-block">Save Course</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock main_content %}
+
+
+<!-- /.content -->
