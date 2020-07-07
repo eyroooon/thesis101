@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'student_management_app.LoginCheckMiddleware.LoginCheckMiddleware'
 ]
 
 ROOT_URLCONF = 'thesis101.urls'
